@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+matchClient:
+  ribbon:
+    listOfServers: "${MATCH_SERVICE_ENDPOINT}"
+
+ribbon:
+  eureka:
+    enable: false
+
+feign:
+  client:
+    config:
+      matchClient:
+        readTimeout: 5000
+        connectTimeout: 5000
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: "${KAFKA_TOPIC}"
+          group: "${KAFKA_GROUP}"
+        input:
+          destination: "${KAFKA_TOPIC}"
+          group: "${KAFKA_GROUP}"
+      kafka:
+        binder:
+          brokers: "${KAFKA_HOST}"
+  profiles:
+    active: dev
+  jackson:
+    default-property-inclusion: NON_NULL
+  kafka:
+    consumer:
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
