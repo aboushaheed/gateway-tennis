@@ -42,7 +42,7 @@
     "@material-ui/lab": "4.0.0-alpha.42",
     "@material-ui/pickers": "3.2.8",
     "@stomp/stompjs": "^5.4.4",
-    "axios": "0.19.0",
+    "axios": "0.21.1",
     "enzyme": "3.10.0",
     "enzyme-adapter-react-16": "1.15.1",
     "moment": "2.24.0",
